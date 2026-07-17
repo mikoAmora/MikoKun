@@ -1,116 +1,398 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>MikoKun-komik</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Tools by Niel · Baca Komik</title>
+  <!-- Font Awesome 6 (gratis) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: #0d0f14;
+      color: #eef2f6;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .app-container {
+      max-width: 430px;
+      width: 100%;
+      background: #14181e;
+      box-shadow: 0 0 30px rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      position: relative;
+      padding-bottom: 80px;
+    }
+
+    /* header */
+    .header {
+      padding: 18px 20px 6px 20px;
+      background: #14181e;
+      border-bottom: 1px solid #2a313a;
+    }
+
+    .header h1 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #f0f4fa;
+    }
+    .header h1 span {
+      color: #6c8cff;
+      font-weight: 300;
+    }
+
+    /* search */
+    .search-bar {
+      margin: 16px 0 10px 0;
+      background: #1e2630;
+      border-radius: 30px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid #2d3642;
+    }
+    .search-bar i {
+      color: #8d99ae;
+      font-size: 16px;
+    }
+    .search-bar input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #eef2f6;
+      font-size: 15px;
+      width: 100%;
+    }
+    .search-bar input::placeholder {
+      color: #6b788a;
+      font-weight: 400;
+    }
+
+    /* tabs */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin: 14px 0 6px 0;
+      flex-wrap: wrap;
+    }
+    .tab-item {
+      background: #1e2630;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #b0bac9;
+      border: 1px solid transparent;
+      transition: 0.15s;
+      cursor: default;
+    }
+    .tab-item.active {
+      background: #2b3a57;
+      color: #b8d0ff;
+      border-color: #4a6bb0;
+    }
+    .tab-item i {
+      margin-right: 6px;
+      font-size: 13px;
+    }
+
+    /* filter row: menu + status */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0 6px 0;
+      padding: 4px 0;
+      gap: 8px;
+    }
+    .filter-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .filter-chip {
+      background: #1e2630;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: #b0bac9;
+      border: 1px solid #2a313a;
+      cursor: default;
+    }
+    .filter-chip i {
+      margin-right: 5px;
+      font-size: 12px;
+    }
+    .filter-chip.active {
+      background: #2b3a57;
+      color: #b8d0ff;
+      border-color: #4a6bb0;
+    }
+
+    /* daftar komik (kosong / placeholder) */
+    .comic-list {
+      padding: 12px 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* setiap section komik (MANHWA, MANGA, dst) */
+    .comic-section {
+      background: #1a2129;
+      border-radius: 18px;
+      padding: 14px 16px 16px 16px;
+      border: 1px solid #28303b;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #8d9bb0;
+      letter-spacing: 0.3px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #28303b;
+      padding-bottom: 8px;
+    }
+    .section-label i {
+      color: #6c8cff;
+      font-size: 14px;
+    }
+
+    .comic-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #252e39;
+    }
+    .comic-item:last-child {
+      border-bottom: none;
+    }
+
+    .comic-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: #e6ecf5;
+      letter-spacing: 0.2px;
+    }
+    .comic-meta {
+      font-size: 12px;
+      color: #79889e;
+      background: #1e2630;
+      padding: 3px 10px;
+      border-radius: 30px;
+      white-space: nowrap;
+    }
+    .comic-meta i {
+      margin-right: 4px;
+      font-size: 11px;
+    }
+
+    .empty-message {
+      text-align: center;
+      color: #5d6d82;
+      font-size: 15px;
+      padding: 28px 10px 20px 10px;
+      letter-spacing: 0.3px;
+    }
+    .empty-message i {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 12px;
+      color: #3c4a5e;
+    }
+
+    /* footer */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .nav-inner {
+      max-width: 430px;
+      width: 100%;
+      background: #11171e;
+      backdrop-filter: blur(6px);
+      border-top: 1px solid #2a323e;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 10px 14px 10px;
+      pointer-events: auto;
+      box-shadow: 0 -6px 20px rgba(0,0,0,0.5);
+    }
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #6f7e93;
+      font-size: 12px;
+      transition: 0.1s;
+      cursor: default;
+    }
+    .nav-item i {
+      font-size: 22px;
+      margin-bottom: 3px;
+    }
+    .nav-item.active {
+      color: #6c8cff;
+    }
+
+    /* responsif kecil */
+    @media (max-width: 430px) {
+      .app-container {
+        max-width: 100%;
+      }
+    }
+
+    /* sentuhan kosong */
+    .kosong-info {
+      background: #1a2129;
+      border-radius: 40px;
+      padding: 18px 12px;
+      text-align: center;
+      border: 1px dashed #3d4a5c;
+      color: #7b8aa1;
+      font-size: 14px;
+    }
+    .kosong-info i {
+      margin-right: 8px;
+      color: #5b7bc7;
+    }
+  </style>
 </head>
 <body>
+  <div class="app-container">
 
-<div class="komik-container">
-
-    <!-- HEADER dengan LOGO MikoKun -->
-    <header class="header">
-        <div class="logo-wrapper">
-            <div class="logo-avatar">MK</div>
-            <div class="logo-text">
-                <span class="miko">MikoKun</span>
-                <span class="sub">— <span>komik</span> —</span>
-            </div>
-        </div>
-    </header>
-
-    <!-- ===== KONTEN KOMIK VERTIKAL ===== -->
-    <!-- KOMIK 1 -->
-    <article class="komik-card" data-id="1">
-        <div class="komik-gambar">
-            <img src="assets/komik1-cover.jpg" alt="MikoKun komik episode 1" loading="lazy" 
-                 onerror="this.src='https://picsum.photos/seed/mikokun1/600/800'" />
-        </div>
-        <div class="komik-info">
-            <div class="komik-judul">
-                <h3>🌙 Senja di Atas Genteng</h3>
-                <span class="chapter">Ch. 01</span>
-            </div>
-            <div class="komik-deskripsi">
-                Miko menemukan surat misterius di loteng. Petualangan malam pertama dimulai...
-            </div>
-            <div class="komik-meta">
-                <span>📅 17 Jul 2026</span>
-                <span>❤️ 124</span>
-                <span class="badge-tag">🌟 aksi</span>
-                <span class="badge-tag">🐱 supernatural</span>
-            </div>
-            <div class="aksi-tombol">
-                <button class="btn btn-primary btn-baca" data-id="1">📖 Baca</button>
-                <button class="btn btn-secondary btn-simpan" data-id="1">➕ Simpan</button>
-            </div>
-        </div>
-    </article>
-
-    <!-- KOMIK 2 -->
-    <article class="komik-card" data-id="2">
-        <div class="komik-gambar">
-            <img src="assets/komik2-cover.jpg" alt="MikoKun komik episode 2" loading="lazy"
-                 onerror="this.src='https://picsum.photos/seed/mikokun2/600/800'" />
-        </div>
-        <div class="komik-info">
-            <div class="komik-judul">
-                <h3>⚡ Kilau Kucing Tiga Ekor</h3>
-                <span class="chapter">Ch. 02</span>
-            </div>
-            <div class="komik-deskripsi">
-                Seekor kucing aneh membawa Miko ke dunia bayangan. Akankah ia kembali?
-            </div>
-            <div class="komik-meta">
-                <span>📅 17 Jul 2026</span>
-                <span>❤️ 98</span>
-                <span class="badge-tag">🐾 petualangan</span>
-                <span class="badge-tag">✨ fantasi</span>
-            </div>
-            <div class="aksi-tombol">
-                <button class="btn btn-primary btn-baca" data-id="2">📖 Baca</button>
-                <button class="btn btn-secondary btn-simpan" data-id="2">➕ Simpan</button>
-            </div>
-        </div>
-    </article>
-
-    <!-- KOMIK 3 -->
-    <article class="komik-card" data-id="3">
-        <div class="komik-gambar">
-            <img src="assets/komik3-cover.jpg" alt="MikoKun komik episode 3" loading="lazy"
-                 onerror="this.src='https://picsum.photos/seed/mikokun3/600/800'" />
-        </div>
-        <div class="komik-info">
-            <div class="komik-judul">
-                <h3>🌀 Lorong Waktu</h3>
-                <span class="chapter">Ch. 03</span>
-            </div>
-            <div class="komik-deskripsi">
-                Miko menemukan gerbang waktu di bawah pohon sakura. Masa lalu dan masa kini bertabrakan.
-            </div>
-            <div class="komik-meta">
-                <span>📅 18 Jul 2026</span>
-                <span>❤️ 67</span>
-                <span class="badge-tag">⏳ misteri</span>
-                <span class="badge-tag">🌸 drama</span>
-            </div>
-            <div class="aksi-tombol">
-                <button class="btn btn-primary btn-baca" data-id="3">📖 Baca</button>
-                <button class="btn btn-secondary btn-simpan" data-id="3">➕ Simpan</button>
-            </div>
-        </div>
-    </article>
-
-    <!-- footer -->
-    <div class="footer-note">
-        <strong>MikoKun-komik</strong> — baca komik vertikal kapan saja. <br />
-        © 2026 · semua karakter milik MikoKun.
+    <!-- HEADER -->
+    <div class="header">
+      <h1><i class="fas fa-book-open" style="margin-right: 8px; color: #6c8cff;"></i>Tools by Niel</h1>
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Cari manga, manhwa, manhua..." value="">
+      </div>
     </div>
 
-</div>
+    <!-- TABS -->
+    <div style="padding: 0 18px;">
+      <div class="tabs">
+        <span class="tab-item active"><i class="fas fa-clock"></i> Update Terbaru</span>
+        <span class="tab-item"><i class="fas fa-fire"></i> Populer</span>
+        <span class="tab-item"><i class="fas fa-star"></i> Favorite</span>
+        <span class="tab-item"><i class="fas fa-history"></i> Riwaya</span>
+      </div>
+    </div>
 
-<script src="script.js"></script>
+    <!-- FILTERS: Menu + Status -->
+    <div style="padding: 0 18px;">
+      <div class="filter-row">
+        <div class="filter-group">
+          <span class="filter-chip active"><i class="fas fa-th-list"></i> Semua</span>
+          <span class="filter-chip"><i class="fas fa-book"></i> Manga</span>
+          <span class="filter-chip"><i class="fas fa-address-book"></i> Manhwa</span>
+          <span class="filter-chip"><i class="fas fa-pen-fancy"></i> Manhua</span>
+        </div>
+        <div class="filter-group">
+          <span class="filter-chip active"><i class="fas fa-circle"></i> Semua Status</span>
+          <span class="filter-chip"><i class="fas fa-play"></i> Ongoing</span>
+          <span class="filter-chip"><i class="fas fa-check"></i> Tamat</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIST KOMIK (KOSONG / TEMPLATE) -->
+    <div class="comic-list">
+
+      <!-- Section MANHWA (placeholder) -->
+      <div class="comic-section">
+        <div class="section-label">
+          <i class="fas fa-address-book"></i> MANHWA
+        </div>
+        <!-- item kosong (tidak ada judul) -->
+        <div class="comic-item">
+          <span class="comic-title" style="color: #8a99b0;">—</span>
+          <span class="comic-meta"><i class="far fa-clock"></i> -</span>
+        </div>
+        <div class="comic-item">
+          <span class="comic-title" style="color: #8a99b0;">—</span>
+          <span class="comic-meta"><i class="far fa-clock"></i> -</span>
+        </div>
+        <div class="comic-item">
+          <span class="comic-title" style="color: #8a99b0;">—</span>
+          <span class="comic-meta"><i class="far fa-clock"></i> -</span>
+        </div>
+        <div class="comic-item">
+          <span class="comic-title" style="color: #8a99b0;">—</span>
+          <span class="comic-meta"><i class="far fa-clock"></i> -</span>
+        </div>
+        <!-- Pesan kosong -->
+        <div class="kosong-info" style="margin-top: 6px;">
+          <i class="fas fa-box-open"></i> Belum ada komik ditambahkan
+        </div>
+      </div>
+
+      <!-- Section MANHWA kedua (dari screenshot) tapi dikosongkan -->
+      <div class="comic-section">
+        <div class="section-label">
+          <i class="fas fa-address-book"></i> MANHWA
+        </div>
+        <div class="comic-item">
+          <span class="comic-title" style="color: #8a99b0;">—</span>
+          <span class="comic-meta"><i class="far fa-calendar-alt"></i> -</span>
+        </div>
+        <div class="comic-item">
+          <span class="comic-title" style="color: #8a99b0;">—</span>
+          <span class="comic-meta"><i class="far fa-calendar-alt"></i> -</span>
+        </div>
+        <div class="comic-item">
+          <span class="comic-title" style="color: #8a99b0;">—</span>
+          <span class="comic-meta"><i class="far fa-calendar-alt"></i> -</span>
+        </div>
+        <div class="kosong-info" style="margin-top: 6px;">
+          <i class="fas fa-file-alt"></i> Konten komik dikosongkan
+        </div>
+      </div>
+
+      <!-- tambahan info kosong general -->
+      <div style="display: flex; justify-content: center; margin: 8px 0 12px 0;">
+        <span style="background: #1a2129; padding: 6px 18px; border-radius: 40px; font-size: 13px; color: #5d6d82; border: 1px solid #2a323e;">
+          <i class="fas fa-rotate-left"></i> Semua judul sengaja dikosongkan
+        </span>
+      </div>
+
+    </div>
+
+    <!-- FOOTER NAV -->
+    <div class="bottom-nav">
+      <div class="nav-inner">
+        <div class="nav-item active"><i class="fas fa-home"></i><span>Home</span></div>
+        <div class="nav-item"><i class="fas fa-download"></i><span>Doenload</span></div>
+        <div class="nav-item"><i class="fas fa-cog"></i><span>Setting</span></div>
+      </div>
+    </div>
+
+  </div>
+  <!-- end app-container -->
 </body>
-</html>
+            </html>
