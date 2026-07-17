@@ -5,54 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>MikoKun-komik</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-    <!-- TOAST NOTIFICATION -->
-    <div class="toast" id="toast">✨ Membaca episode...</div>
+<div class="komik-container">
 
-    <!-- HEADER -->
+    <!-- HEADER dengan LOGO MikoKun -->
     <header class="header">
-        <div class="logo-area" id="logoBtn">
-            <div class="logo-icon">MK</div>
+        <div class="logo-wrapper">
+            <div class="logo-avatar">MK</div>
             <div class="logo-text">
-                <span class="main">MikoKun</span>
-                <span class="sub">· komik ·</span>
+                <span class="miko">MikoKun</span>
+                <span class="sub">— <span>komik</span> —</span>
             </div>
-        </div>
-        <div class="header-actions">
-            <i class="fas fa-search" id="searchBtn"></i>
-            <i class="fas fa-bell" id="notifBtn"></i>
         </div>
     </header>
 
-    <!-- CATEGORY -->
-    <div class="category-scroll" id="categoryContainer">
-        <span class="chip active" data-cat="trending"><i class="fas fa-fire"></i> Trending</span>
-        <span class="chip" data-cat="populer"><i class="fas fa-star"></i> Populer</span>
-        <span class="chip" data-cat="baru"><i class="fas fa-clock"></i> Baru</span>
-        <span class="chip" data-cat="romantis"><i class="fas fa-heart"></i> Romantis</span>
-        <span class="chip" data-cat="aksi"><i class="fas fa-dragon"></i> Aksi</span>
-        <span class="chip" data-cat="misteri"><i class="fas fa-ghost"></i> Misteri</span>
-        <span class="chip" data-cat="sekolah"><i class="fas fa-school"></i> Sekolah</span>
+    <!-- ===== KONTEN KOMIK VERTIKAL ===== -->
+    <!-- KOMIK 1 -->
+    <article class="komik-card">
+        <div class="komik-gambar">
+            <img src="https://picsum.photos/seed/mikokun1/600/800" alt="MikoKun komik episode 1" loading="lazy" />
+        </div>
+        <div class="komik-info">
+            <div class="komik-judul">
+                <h3>🌙 Senja di Atas Genteng</h3>
+                <span class="chapter">Ch. 01</span>
+            </div>
+            <div class="komik-deskripsi">
+                Miko menemukan surat misterius di loteng. Petualangan malam pertama dimulai...
+            </div>
+            <div class="komik-meta">
+                <span>📅 17 Jul 2026</span>
+                <span>❤️ 124</span>
+                <span class="badge-tag">🌟 aksi</span>
+                <span class="badge-tag">🐱 supernatural</span>
+            </div>
+            <div class="aksi-tombol">
+                <button class="btn btn-primary">📖 Baca</button>
+                <button class="btn btn-secondary">➕ Simpan</button>
+            </div>
+        </div>
+    </article>
+
+    <!-- KOMIK 2 -->
+    <article class="komik-card">
+        <div class="komik-gambar">
+            <img src="https://picsum.photos/seed/mikokun2/600/800" alt="MikoKun komik episode 2" loading="lazy" />
+        </div>
+        <div class="komik-info">
+            <div class="komik-judul">
+                <h3>⚡ Kilau Kucing Tiga Ekor</h3>
+                <span class="chapter">Ch. 02</span>
+            </div>
+            <div class="komik-deskripsi">
+                Seekor kucing aneh membawa Miko ke dunia bayangan. Akankah ia kembali?
+            </div>
+            <div class="komik-meta">
+                <span>📅 17 Jul 2026</span>
+                <span>❤️ 98</span>
+                <span class="badge-tag">🐾 petualangan</span>
+                <span class="badge-tag">✨ fantasi</span>
+            </div>
+            <div class="aksi-tombol">
+                <button class="btn btn-primary">📖 Baca</button>
+                <button class="btn btn-secondary">➕ Simpan</button>
+            </div>
+        </div>
+    </article>
+
+    <!-- KOMIK 3 (placeholder tanpa gambar) -->
+    <article class="komik-card">
+        <div class="komik-gambar">
+            <div class="placeholder-img">
+                <span class="big-icon">🎴</span>
+                <span>Episode 3 segera hadir</span>
+                <span class="small">— MikoKun sedang bertualang —</span>
+            </div>
+        </div>
+        <div class="komik-info">
+            <div class="komik-judul">
+                <h3>🌀 Lorong Waktu</h3>
+                <span class="chapter">Ch. 03</span>
+            </div>
+            <div class="komik-deskripsi">
+                Miko menemukan gerbang waktu di bawah pohon sakura. Masa lalu dan masa kini bertabrakan.
+            </div>
+            <div class="komik-meta">
+                <span>📅 18 Jul 2026</span>
+                <span>❤️ 67</span>
+                <span class="badge-tag">⏳ misteri</span>
+                <span class="badge-tag">🌸 drama</span>
+            </div>
+            <div class="aksi-tombol">
+                <button class="btn btn-primary">📖 Baca</button>
+                <button class="btn btn-secondary">➕ Simpan</button>
+            </div>
+        </div>
+    </article>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <strong>MikoKun-komik</strong> — baca komik vertikal kapan saja. <br />
+        © 2026 · semua karakter milik MikoKun.
     </div>
 
-    <!-- COMIC GRID -->
-    <div class="comic-grid" id="comicGrid">
-        <!-- akan diisi oleh JavaScript -->
-    </div>
+</div>
 
-    <!-- BOTTOM NAV -->
-    <div class="bottom-nav">
-        <div class="nav-item active" data-nav="home"><i class="fas fa-home"></i><span>Beranda</span></div>
-        <div class="nav-item" data-nav="explore"><i class="fas fa-compass"></i><span>Jelajah</span></div>
-        <div class="nav-item" data-nav="collection"><i class="fas fa-book-open"></i><span>Koleksi</span></div>
-        <div class="nav-item" data-nav="profile"><i class="fas fa-user"></i><span>Profil</span></div>
-    </div>
-
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
