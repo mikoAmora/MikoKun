@@ -1,1 +1,1 @@
-# MikoKun
+# MikoKun-komik
