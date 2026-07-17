@@ -1,0 +1,110 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    padding: 25px 20px;
+    text-align: center;
+    border-bottom: 3px solid #e17055;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #e17055;
+}
+
+header p {
+    color: #b2bec3;
+    font-size: 0.9rem;
+}
+
+/* Main */
+main {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #dfe6e9;
+}
+
+/* Episode list */
+.episode-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.episode-card {
+    background: #1e1e2e;
+    padding: 18px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #dfe6e9;
+    border: 1px solid #2d2d44;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.episode-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(225, 112, 85, 0.2);
+}
+
+.ep-number {
+    font-weight: bold;
+    color: #e17055;
+    font-size: 1.1rem;
+}
+
+.ep-title {
+    font-size: 1rem;
+    color: #dfe6e9;
+}
+
+.ep-date {
+    font-size: 0.8rem;
+    color: #636e72;
+}
+
+/* Info box */
+.info-box {
+    margin-top: 30px;
+    padding: 15px;
+    background: #1e1e2e;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px dashed #2d2d44;
+    color: #b2bec3;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px 20px;
+    color: #636e72;
+    border-top: 1px solid #2d2d44;
+    margin-top: 30px;
+    font-size: 0.85rem;
+}
