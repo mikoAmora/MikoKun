@@ -33,11 +33,6 @@ document.getElementById('themeToggle')?.addEventListener('click', function() {
     }
 });
 
-// ===== NOTIF =====
-document.getElementById('notifToggle')?.addEventListener('click', () => {
-    alert('🔔 Tidak ada notifikasi baru');
-});
-
 // ===== BACA SEKARANG =====
 document.getElementById('readNowBtn')?.addEventListener('click', () => {
     alert('📖 Membuka Episode 1: "Pertemuan dengan Pyro"');
@@ -99,6 +94,28 @@ document.querySelectorAll('.episode-card').forEach(card => {
     });
 });
 
+// ===== TRENDING ITEM CLICK =====
+document.querySelectorAll('.trending-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const title = this.querySelector('h4')?.textContent || 'Komik';
+        alert(`📖 Membuka "${title}"`);
+    });
+});
+
+// ===== TRENDING TABS =====
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        alert(`📋 Menampilkan daftar ${this.textContent}`);
+    });
+});
+
+// ===== INSTALL APP =====
+document.querySelector('.btn-install-app')?.addEventListener('click', () => {
+    alert('📱 Fitur install aplikasi (demo)');
+});
+
 // ===== LOAD MORE EPISODES =====
 document.getElementById('loadMoreEpisodes')?.addEventListener('click', function() {
     this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memuat...';
@@ -140,7 +157,6 @@ document.getElementById('loadMoreEpisodes')?.addEventListener('click', function(
             `;
             episodeList.appendChild(card);
             
-            // Add event listener for new cards
             card.querySelector('.btn-read-episode')?.addEventListener('click', function(e) {
                 e.stopPropagation();
                 const title = this.closest('.episode-card')?.querySelector('h3')?.textContent || 'Episode';
