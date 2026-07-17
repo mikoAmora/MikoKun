@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baca - MikoKun</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Khusus halaman baca */
+        .reading-area {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0;
+            background: #0a0a0a;
+        }
+
+        .reading-area img {
+            width: 100%;
+            display: block;
+            margin: 0;
+        }
+
+        .nav-chapter {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background: #1a1a2e;
+            position: sticky;
+            bottom: 0;
+            border-top: 2px solid #e17055;
+            gap: 10px;
+        }
+
+        .nav-chapter a {
+            background: #e17055;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            flex: 1;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .nav-chapter a:hover {
+            background: #d63031;
+        }
+
+        .nav-chapter a:first-child {
+            background: #2d2d44;
+        }
+
+        .nav-chapter a:first-child:hover {
+            background: #3d3d55;
+        }
+
+        .back-home {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            color: #b2bec3;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-home:hover {
+            color: #e17055;
+        }
+
+        .ep-info {
+            text-align: center;
+            padding: 15px;
+            color: #b2bec3;
+            font-size: 0.9rem;
+            background: #0a0a0a;
+        }
+    </style>
+</head>
+<body>
+    <div class="reading-area">
+        <!-- Header sederhana -->
+        <div style="padding: 15px; text-align: center; background: #1a1a2e; border-bottom: 1px solid #2d2d44;">
+            <a href="index.html" style="color: #e17055; text-decoration: none; font-weight: bold;">← Kembali</a>
+            <span style="color: #b2bec3; margin-left: 15px;" id="episode-title">Episode 1</span>
+        </div>
+
+        <!-- Area gambar (scroll vertikal) -->
+        <div id="panel-container">
+            <!-- Gambar akan muncul di sini -->
+        </div>
+
+        <!-- Navigasi bawah -->
+        <div class="nav-chapter">
+            <a href="baca.html?ep=1" id="prev-ep">⬅ Episode Sebelumnya</a>
+            <a href="baca.html?ep=2" id="next-ep">Episode Selanjutnya ➡</a>
+        </div>
+
+        <a href="index.html" class="back-home">🏠 Kembali ke Daftar Episode</a>
+    </div>
+
+    <script>
+        // ======================
+        //  LOGIKA WEBTOON
+        // ======================
+
+        // Ambil parameter ?ep= dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const episode = parseInt(urlParams.get('ep')) || 1;
+
+        // Fungsi untuk generate gambar (karena kita belum upload)
+        function generateDummyImages(ep) {
+            const container = document.getElementById('panel-container');
+            container.innerHTML = '';
+            
+            // Jumlah panel per episode
+            const panelCount = ep === 1 ? 4 : (ep === 2 ? 5 : 6);
+            
+            for (let i = 1; i <= panelCount; i++) {
+                const img = document.createElement('img');
+                // Nanti ganti dengan URL gambar asli
+                img.src = `https://via.placeholder.com/500x800/2d2d44/e17055?text=Episode+${ep}+Panel+${i}`;
+                img.alt = `Episode ${ep} Panel ${i}`;
+                container.appendChild(img);
+            }
+
+            // Update judul
+            document.getElementById('episode-title').textContent = `Episode ${ep}`;
+            
+            // Update navigasi
+            document.getElementById('prev-ep').href = `baca.html?ep=${ep-1}`;
+            document.getElementById('next-ep').href = `baca.html?ep=${ep+1}`;
+            
+            // Sembunyikan prev jika episode 1
+            if (ep <= 1) {
+                document.getElementById('prev-ep').style.visibility = 'hidden';
+            }
+        }
+
+        // Jalankan
+        generateDummyImages(episode);
+    </script>
+</body>
+</html>
