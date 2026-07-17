@@ -1,34 +1,58 @@
-<!-- ====== READER MODE ====== -->
-<div class="reader-overlay" id="readerOverlay">
-    <div class="reader-container">
-        <!-- Header -->
-        <div class="reader-header">
-            <button class="reader-close" id="readerClose">
-                <i class="fas fa-arrow-left"></i>
-            </button>
-            <div class="reader-info">
-                <span id="readerTitle">🐉 Dragon Heir</span>
-                <span id="readerChapter">Episode 1 · Pertemuan dengan Pyro</span>
-            </div>
-            <div class="reader-controls">
-                <span id="readerProgress">Panel 1 / 5</span>
-            </div>
-        </div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>MikoKun-komik</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
 
-        <!-- Content -->
-        <div class="reader-content" id="readerContent">
-            <!-- Panel akan di-generate oleh JS -->
-        </div>
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast">✨ Membaca episode...</div>
 
-        <!-- Footer Navigation -->
-        <div class="reader-footer">
-            <button class="reader-nav-btn" id="readerPrevBtn">
-                <i class="fas fa-chevron-left"></i> Sebelumnya
-            </button>
-            <span id="readerPageInfo">1 / 5</span>
-            <button class="reader-nav-btn" id="readerNextBtn">
-                Selanjutnya <i class="fas fa-chevron-right"></i>
-            </button>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo-area" id="logoBtn">
+            <div class="logo-icon">MK</div>
+            <div class="logo-text">
+                <span class="main">MikoKun</span>
+                <span class="sub">· komik ·</span>
+            </div>
         </div>
+        <div class="header-actions">
+            <i class="fas fa-search" id="searchBtn"></i>
+            <i class="fas fa-bell" id="notifBtn"></i>
+        </div>
+    </header>
+
+    <!-- CATEGORY -->
+    <div class="category-scroll" id="categoryContainer">
+        <span class="chip active" data-cat="trending"><i class="fas fa-fire"></i> Trending</span>
+        <span class="chip" data-cat="populer"><i class="fas fa-star"></i> Populer</span>
+        <span class="chip" data-cat="baru"><i class="fas fa-clock"></i> Baru</span>
+        <span class="chip" data-cat="romantis"><i class="fas fa-heart"></i> Romantis</span>
+        <span class="chip" data-cat="aksi"><i class="fas fa-dragon"></i> Aksi</span>
+        <span class="chip" data-cat="misteri"><i class="fas fa-ghost"></i> Misteri</span>
+        <span class="chip" data-cat="sekolah"><i class="fas fa-school"></i> Sekolah</span>
     </div>
-</div>
+
+    <!-- COMIC GRID -->
+    <div class="comic-grid" id="comicGrid">
+        <!-- akan diisi oleh JavaScript -->
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <div class="bottom-nav">
+        <div class="nav-item active" data-nav="home"><i class="fas fa-home"></i><span>Beranda</span></div>
+        <div class="nav-item" data-nav="explore"><i class="fas fa-compass"></i><span>Jelajah</span></div>
+        <div class="nav-item" data-nav="collection"><i class="fas fa-book-open"></i><span>Koleksi</span></div>
+        <div class="nav-item" data-nav="profile"><i class="fas fa-user"></i><span>Profil</span></div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
