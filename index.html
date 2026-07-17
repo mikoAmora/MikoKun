@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>Dragon Heir · Webtoon</title>
+    <title>Komiku · Baca Komik Online</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" href="style.css" />
@@ -11,17 +11,24 @@
 <body>
 
 <!-- ====== TOP NAVBAR ====== -->
-<nav class="top-nav">
+<nav class="navbar">
     <div class="nav-container">
         <div class="nav-left">
-            <button class="nav-icon" id="menuToggle">
+            <button class="nav-icon mobile-menu" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="logo">
-                <span class="logo-icon">🐉</span>
-                <span class="logo-text">DragonHeir</span>
-            </div>
+            <a href="#" class="logo">
+                <span class="logo-icon">📚</span>
+                <span class="logo-text">Komiku</span>
+            </a>
         </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" class="active">Beranda</a></li>
+            <li><a href="#">Genre</a></li>
+            <li><a href="#">Populer</a></li>
+            <li><a href="#">Terbaru</a></li>
+            <li><a href="#">Tentang</a></li>
+        </ul>
         <div class="nav-right">
             <button class="nav-icon" id="searchToggle">
                 <i class="fas fa-search"></i>
@@ -29,7 +36,11 @@
             <button class="nav-icon" id="themeToggle">
                 <i class="fas fa-moon"></i>
             </button>
-            <div class="avatar">
+            <button class="nav-icon" id="notifToggle">
+                <i class="fas fa-bell"></i>
+                <span class="badge-dot"></span>
+            </button>
+            <div class="avatar" id="avatarBtn">
                 <i class="fas fa-user-circle"></i>
             </div>
         </div>
@@ -37,469 +48,428 @@
 </nav>
 
 <!-- ====== SEARCH BAR ====== -->
-<div class="search-bar" id="searchBar">
-    <div class="search-container">
-        <i class="fas fa-search"></i>
-        <input type="text" placeholder="Cari komik, episode, atau karakter..." />
-        <button id="searchClose"><i class="fas fa-times"></i></button>
+<div class="search-overlay" id="searchOverlay">
+    <div class="search-modal">
+        <div class="search-header">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Cari judul komik, genre, atau penulis..." id="searchInput" autofocus/>
+            <button id="searchClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="search-suggestions">
+            <p class="suggestion-title">🔥 Trending</p>
+            <div class="suggestion-items">
+                <span>Dragon Heir</span>
+                <span>Solo Leveling</span>
+                <span>Tower of God</span>
+                <span>Noblesse</span>
+            </div>
+        </div>
     </div>
 </div>
 
-<!-- ====== HERO SECTION (WEBTOON STYLE) ====== -->
-<section class="hero-section">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-        <div class="hero-badge">
-            <span class="badge-hot"><i class="fas fa-fire"></i> HOT</span>
-            <span class="badge-new">NEW</span>
+<!-- ====== HERO BANNER ====== -->
+<section class="hero-banner">
+    <div class="hero-slide">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
         </div>
-        <h1 class="hero-title">Dragon Heir</h1>
-        <p class="hero-desc">Seorang pemuda biasa mewarisi kekuatan naga kuno. Bisakah dia menyelamatkan kerajaan dari kegelapan?</p>
-        <div class="hero-stats">
-            <span><i class="fas fa-eye"></i> 12.4M</span>
-            <span><i class="fas fa-heart" style="color:#ff4757;"></i> 89.2K</span>
-            <span><i class="fas fa-star" style="color:#ffd700;"></i> 4.9/5</span>
-        </div>
-        <div class="hero-buttons">
-            <button class="btn-readnow" id="readNowBtn">
-                <i class="fas fa-play"></i> Baca Sekarang
-            </button>
-            <button class="btn-favorite" id="favBtn">
-                <i class="far fa-heart"></i>
-            </button>
-            <button class="btn-share" id="shareBtn">
-                <i class="fas fa-share-alt"></i>
-            </button>
-        </div>
-    </div>
-</section>
-
-<!-- ====== INFO KOMIK (WEBTOON STYLE) ====== -->
-<section class="info-section">
-    <div class="info-grid">
-        <div class="info-item">
-            <i class="fas fa-user-pen"></i>
-            <div>
-                <small>PENULIS</small>
-                <span>MikoAmora</span>
+        <div class="hero-content">
+            <span class="hero-badge">🔥 Pilihan Editor</span>
+            <h1 class="hero-title">Dragon Heir</h1>
+            <p class="hero-desc">
+                Seorang pemuda biasa mewarisi kekuatan naga kuno. 
+                Bisakah dia menyelamatkan kerajaan dari kegelapan?
+            </p>
+            <div class="hero-meta">
+                <span><i class="fas fa-user"></i> MikoAmora</span>
+                <span><i class="fas fa-star" style="color:#ffd700;"></i> 4.9/5</span>
+                <span><i class="fas fa-eye"></i> 12.4M</span>
+                <span><i class="fas fa-heart" style="color:#ff4757;"></i> 89.2K</span>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary" id="readNowBtn">
+                    <i class="fas fa-play"></i> Baca Sekarang
+                </button>
+                <button class="btn-secondary" id="favBtn">
+                    <i class="far fa-heart"></i> Favorit
+                </button>
             </div>
         </div>
-        <div class="info-item">
-            <i class="fas fa-tags"></i>
-            <div>
-                <small>GENRE</small>
-                <span>Fantasy · Aksi · Petualangan</span>
-            </div>
-        </div>
-        <div class="info-item">
-            <i class="fas fa-clock"></i>
-            <div>
-                <small>UPDATE</small>
-                <span>2 jam lalu</span>
-            </div>
-        </div>
-        <div class="info-item">
-            <i class="fas fa-book"></i>
-            <div>
-                <small>STATUS</small>
-                <span class="status-ongoing">Ongoing</span>
+        <div class="hero-cover">
+            <div class="cover-art">
+                <i class="fas fa-dragon"></i>
+                <span>🐉</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ====== SINOPSIS ====== -->
-<section class="synopsis-section">
-    <div class="synopsis-header">
-        <h2><i class="fas fa-quote-left"></i> Sinopsis</h2>
-        <button class="btn-expand" id="synopsisToggle">
-            <i class="fas fa-chevron-down"></i>
-        </button>
+<!-- ====== GENRE ====== -->
+<section class="genre-section">
+    <div class="section-header">
+        <h2><i class="fas fa-tags"></i> Genre</h2>
+        <a href="#" class="view-all">Lihat Semua →</a>
     </div>
-    <div class="synopsis-content" id="synopsisContent">
-        <p>
-            Di kerajaan <strong>Eldoria</strong> yang damai, hiduplah <strong>Ren</strong>, seorang pemuda yatim piatu 
-            yang bekerja sebagai pengurus perpustakaan kerajaan. Suatu malam, ia menemukan sebuah 
-            <strong>telur naga</strong> yang tersembunyi di antara buku-buku kuno. 
-            Tanpa sengaja, telur itu menetas dan seekor naga kecil bernama <strong>Pyro</strong> lahir. 
-            Sejak saat itu, Ren menyadari bahwa ia adalah <strong>pewaris terakhir</strong> dari garis keturunan 
-            Dragon Knight — para kesatria yang mampu mengendalikan kekuatan naga.
-        </p>
-        <p>
-            Kini, bersama Pyro, Ren harus berpetualang melintasi kerajaan untuk menghentikan kebangkitan 
-            <strong>Raja Kegelapan</strong> yang telah lama terkubur. Akankah Ren mampu menguasai kekuatannya 
-            sebelum kegelapan menyelimuti Eldoria?
-        </p>
+    <div class="genre-scroll">
+        <span class="genre-tag active">🔥 Semua</span>
+        <span class="genre-tag">Fantasy</span>
+        <span class="genre-tag">Aksi</span>
+        <span class="genre-tag">Romantis</span>
+        <span class="genre-tag">Petualangan</span>
+        <span class="genre-tag">Thriller</span>
+        <span class="genre-tag">Komedi</span>
+        <span class="genre-tag">Slice of Life</span>
+        <span class="genre-tag">Horor</span>
+        <span class="genre-tag">Misteri</span>
     </div>
 </section>
 
-<!-- ====== TRENDING & POPULER (WEBTOON STYLE) ====== -->
+<!-- ====== TRENDING & POPULER ====== -->
 <section class="trending-section">
-    <div class="trending-header">
-        <h2><i class="fas fa-fire"></i> Serial Trending & Populer</h2>
-        <div class="trending-tabs">
+    <div class="section-header">
+        <h2><i class="fas fa-fire" style="color:#ff4757;"></i> Trending & Populer</h2>
+        <div class="tab-group">
             <button class="tab-btn active">Trending</button>
             <button class="tab-btn">Populer</button>
         </div>
     </div>
-
-    <div class="trending-list">
-        <!-- Item 1 -->
-        <div class="trending-item">
+    <div class="trending-grid">
+        <div class="trending-card" style="--rank:1;">
             <div class="trending-rank">1</div>
-            <div class="trending-thumb" style="background:linear-gradient(135deg,#2d1b69,#11998e);">
+            <div class="trending-cover" style="background:linear-gradient(135deg,#2d1b69,#11998e);">
                 <i class="fas fa-crown"></i>
             </div>
             <div class="trending-info">
-                <h4>Marchioness M...</h4>
-                <p>Kerajaan</p>
-                <div class="trending-meta">
-                    <span><i class="fas fa-eye"></i> 25</span>
-                    <span><i class="fas fa-heart"></i> 15</span>
+                <h4>Dragon Heir</h4>
+                <p>Fantasy · Aksi</p>
+                <div class="trending-stats">
+                    <span><i class="fas fa-eye"></i> 2.5M</span>
+                    <span><i class="fas fa-heart" style="color:#ff4757;"></i> 89K</span>
                 </div>
             </div>
         </div>
-
-        <!-- Item 2 -->
-        <div class="trending-item">
+        <div class="trending-card" style="--rank:2;">
             <div class="trending-rank">2</div>
-            <div class="trending-thumb" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
+            <div class="trending-cover" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
                 <i class="fas fa-heart"></i>
             </div>
             <div class="trending-info">
-                <h4>The Perfect Mal...</h4>
-                <p>Romantis</p>
-                <div class="trending-meta">
-                    <span><i class="fas fa-eye"></i> 15</span>
+                <h4>The Perfect Match</h4>
+                <p>Romantis · Drama</p>
+                <div class="trending-stats">
+                    <span><i class="fas fa-eye"></i> 1.8M</span>
+                    <span><i class="fas fa-heart" style="color:#ff4757;"></i> 62K</span>
                 </div>
             </div>
         </div>
-
-        <!-- Item 3 -->
-        <div class="trending-item">
+        <div class="trending-card" style="--rank:3;">
             <div class="trending-rank">3</div>
-            <div class="trending-thumb" style="background:linear-gradient(135deg,#a8edea,#fed6e3);">
+            <div class="trending-cover" style="background:linear-gradient(135deg,#a8edea,#fed6e3);">
                 <i class="fas fa-leaf"></i>
             </div>
             <div class="trending-info">
-                <h4>Violats Blooming...</h4>
-                <p>Kerajaan</p>
-                <div class="trending-meta">
-                    <span><i class="fas fa-eye"></i> 1</span>
+                <h4>Violet Blooming</h4>
+                <p>Kerajaan · Fantasy</p>
+                <div class="trending-stats">
+                    <span><i class="fas fa-eye"></i> 1.2M</span>
+                    <span><i class="fas fa-heart" style="color:#ff4757;"></i> 45K</span>
                 </div>
             </div>
         </div>
-
-        <!-- Item 4 -->
-        <div class="trending-item">
+        <div class="trending-card" style="--rank:4;">
             <div class="trending-rank">4</div>
-            <div class="trending-thumb" style="background:linear-gradient(135deg,#f6d365,#fda085);">
+            <div class="trending-cover" style="background:linear-gradient(135deg,#f6d365,#fda085);">
                 <i class="fas fa-skull"></i>
             </div>
             <div class="trending-info">
-                <h4>Iblis di Antara Ki...</h4>
-                <p>Thriller</p>
-                <div class="trending-meta">
-                    <span><i class="fas fa-eye"></i> 20</span>
+                <h4>Iblis di Antara Kita</h4>
+                <p>Thriller · Misteri</p>
+                <div class="trending-stats">
+                    <span><i class="fas fa-eye"></i> 980K</span>
+                    <span><i class="fas fa-heart" style="color:#ff4757;"></i> 38K</span>
                 </div>
             </div>
         </div>
-
-        <!-- Item 5 -->
-        <div class="trending-item">
+        <div class="trending-card" style="--rank:5;">
             <div class="trending-rank">5</div>
-            <div class="trending-thumb" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">
+            <div class="trending-cover" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">
                 <i class="fas fa-heart"></i>
             </div>
             <div class="trending-info">
                 <h4>#MyFirstLove</h4>
-                <p>Romantis</p>
-                <div class="trending-meta">
-                    <span><i class="fas fa-eye"></i> 3</span>
+                <p>Romantis · Slice of Life</p>
+                <div class="trending-stats">
+                    <span><i class="fas fa-eye"></i> 750K</span>
+                    <span><i class="fas fa-heart" style="color:#ff4757;"></i> 28K</span>
                 </div>
             </div>
         </div>
-
-        <!-- Item 6 -->
-        <div class="trending-item">
+        <div class="trending-card" style="--rank:6;">
             <div class="trending-rank">6</div>
-            <div class="trending-thumb" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);">
+            <div class="trending-cover" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);">
                 <i class="fas fa-gamepad"></i>
             </div>
             <div class="trending-info">
                 <h4>Reality Quest</h4>
-                <p>Aksi</p>
-                <div class="trending-meta">
-                    <span><i class="fas fa-eye"></i> 6</span>
+                <p>Aksi · Petualangan</p>
+                <div class="trending-stats">
+                    <span><i class="fas fa-eye"></i> 620K</span>
+                    <span><i class="fas fa-heart" style="color:#ff4757;"></i> 22K</span>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <div class="trending-footer">
-        <button class="btn-install-app">
-            <i class="fas fa-download"></i> Install aplikasi
-        </button>
+<!-- ====== REKOMENDASI HARIAN ====== -->
+<section class="rekomendasi-section">
+    <div class="section-header">
+        <h2><i class="fas fa-star" style="color:#ffd700;"></i> Rekomendasi Harian</h2>
+        <a href="#" class="view-all">Lihat Semua →</a>
+    </div>
+    <div class="rekomendasi-grid">
+        <div class="komik-card">
+            <div class="komik-cover" style="background:linear-gradient(135deg,#2d1b69,#11998e);">
+                <i class="fas fa-dragon"></i>
+                <span class="komik-badge">Ongoing</span>
+            </div>
+            <div class="komik-info">
+                <h4>Dragon Heir</h4>
+                <p>MikoAmora</p>
+                <div class="komik-meta">
+                    <span><i class="fas fa-star" style="color:#ffd700;"></i> 4.9</span>
+                    <span><i class="fas fa-eye"></i> 12.4M</span>
+                </div>
+            </div>
+        </div>
+        <div class="komik-card">
+            <div class="komik-cover" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
+                <i class="fas fa-heart"></i>
+                <span class="komik-badge">Ongoing</span>
+            </div>
+            <div class="komik-info">
+                <h4>The Perfect Match</h4>
+                <p>Jane Doe</p>
+                <div class="komik-meta">
+                    <span><i class="fas fa-star" style="color:#ffd700;"></i> 4.8</span>
+                    <span><i class="fas fa-eye"></i> 8.7M</span>
+                </div>
+            </div>
+        </div>
+        <div class="komik-card">
+            <div class="komik-cover" style="background:linear-gradient(135deg,#a8edea,#fed6e3);">
+                <i class="fas fa-leaf"></i>
+                <span class="komik-badge">Ongoing</span>
+            </div>
+            <div class="komik-info">
+                <h4>Violet Blooming</h4>
+                <p>Sarah Kim</p>
+                <div class="komik-meta">
+                    <span><i class="fas fa-star" style="color:#ffd700;"></i> 4.7</span>
+                    <span><i class="fas fa-eye"></i> 6.2M</span>
+                </div>
+            </div>
+        </div>
+        <div class="komik-card">
+            <div class="komik-cover" style="background:linear-gradient(135deg,#f6d365,#fda085);">
+                <i class="fas fa-skull"></i>
+                <span class="komik-badge">Ongoing</span>
+            </div>
+            <div class="komik-info">
+                <h4>Iblis di Antara Kita</h4>
+                <p>Alex W.</p>
+                <div class="komik-meta">
+                    <span><i class="fas fa-star" style="color:#ffd700;"></i> 4.6</span>
+                    <span><i class="fas fa-eye"></i> 5.1M</span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- ====== KARAKTER ====== -->
-<section class="characters-section">
-    <h2><i class="fas fa-users"></i> Karakter</h2>
-    <div class="characters-scroll">
-        <div class="character-card">
-            <div class="char-avatar" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
-                <i class="fas fa-user"></i>
-            </div>
-            <div class="char-info">
-                <h4>Ren</h4>
-                <p>Pewaris Naga</p>
-            </div>
-        </div>
-        <div class="character-card">
-            <div class="char-avatar" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">
-                <i class="fas fa-dragon"></i>
-            </div>
-            <div class="char-info">
-                <h4>Pyro</h4>
-                <p>Naga Kecil</p>
-            </div>
-        </div>
-        <div class="character-card">
-            <div class="char-avatar" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);">
-                <i class="fas fa-user-shield"></i>
-            </div>
-            <div class="char-info">
-                <h4>Lira</h4>
-                <p>Prajurit Kerajaan</p>
-            </div>
-        </div>
-        <div class="character-card">
-            <div class="char-avatar" style="background:linear-gradient(135deg,#fccb90,#d57eeb);">
-                <i class="fas fa-skull"></i>
-            </div>
-            <div class="char-info">
-                <h4>Vorthax</h4>
-                <p>Raja Kegelapan</p>
-            </div>
-        </div>
-        <div class="character-card">
-            <div class="char-avatar" style="background:linear-gradient(135deg,#f6d365,#fda085);">
+<!-- ====== KOMIK TERBARU ====== -->
+<section class="terbaru-section">
+    <div class="section-header">
+        <h2><i class="fas fa-clock" style="color:#4facfe;"></i> Komik Terbaru</h2>
+        <a href="#" class="view-all">Lihat Semua →</a>
+    </div>
+    <div class="terbaru-grid">
+        <div class="komik-card">
+            <div class="komik-cover" style="background:linear-gradient(135deg,#fa709a,#fee140);">
                 <i class="fas fa-crown"></i>
+                <span class="komik-badge">New</span>
             </div>
-            <div class="char-info">
-                <h4>King Aldric</h4>
-                <p>Raja Eldoria</p>
+            <div class="komik-info">
+                <h4>Kingdom's Heir</h4>
+                <p>MikoAmora</p>
+                <div class="komik-meta">
+                    <span><i class="fas fa-star" style="color:#ffd700;"></i> 4.5</span>
+                    <span><i class="fas fa-clock"></i> 2 jam lalu</span>
+                </div>
             </div>
+        </div>
+        <div class="komik-card">
+            <div class="komik-cover" style="background:linear-gradient(135deg,#30cfd0,#330867);">
+                <i class="fas fa-mask"></i>
+                <span class="komik-badge">New</span>
+            </div>
+            <div class="komik-info">
+                <h4>Shadow Knight</h4>
+                <p>Ryu S.</p>
+                <div class="komik-meta">
+                    <span><i class="fas fa-star" style="color:#ffd700;"></i> 4.4</span>
+                    <span><i class="fas fa-clock"></i> 5 jam lalu</span>
+                </div>
+            </div>
+        </div>
+        <div class="komik-card">
+            <div class="komik-cover" style="background:linear-gradient(135deg,#fccb90,#d57eeb);">
+                <i class="fas fa-music"></i>
+                <span class="komik-badge">New</span>
+            </div>
+            <div class="komik-info">
+                <h4>Melody of Love</h4>
+                <p>Luna P.</p>
+                <div class="komik-meta">
+                    <span><i class="fas fa-star" style="color:#ffd700;"></i> 4.3</span>
+                    <span><i class="fas fa-clock"></i> 1 hari lalu</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== DETAIL KOMIK (DRAGON HEIR) ====== -->
+<section class="detail-section" id="detailSection">
+    <div class="detail-container">
+        <div class="detail-cover">
+            <div class="detail-cover-art" style="background:linear-gradient(135deg,#2d1b69,#11998e);">
+                <i class="fas fa-dragon"></i>
+                <span>🐉</span>
+            </div>
+        </div>
+        <div class="detail-info">
+            <h2>Dragon Heir</h2>
+            <div class="detail-meta">
+                <span class="detail-author"><i class="fas fa-user"></i> MikoAmora</span>
+                <span class="detail-status status-ongoing">Ongoing</span>
+            </div>
+            <div class="detail-genres">
+                <span class="detail-genre">Fantasy</span>
+                <span class="detail-genre">Aksi</span>
+                <span class="detail-genre">Petualangan</span>
+            </div>
+            <div class="detail-stats">
+                <span><i class="fas fa-eye"></i> 12.4M</span>
+                <span><i class="fas fa-heart" style="color:#ff4757;"></i> 89.2K</span>
+                <span><i class="fas fa-star" style="color:#ffd700;"></i> 4.9/5</span>
+                <span><i class="fas fa-comment"></i> 1.2K</span>
+            </div>
+            <p class="detail-sinopsis">
+                Di kerajaan <strong>Eldoria</strong> yang damai, hiduplah <strong>Ren</strong>, seorang pemuda yatim piatu 
+                yang bekerja sebagai pengurus perpustakaan kerajaan. Suatu malam, ia menemukan sebuah 
+                <strong>telur naga</strong> yang tersembunyi di antara buku-buku kuno. 
+                Tanpa sengaja, telur itu menetas dan seekor naga kecil bernama <strong>Pyro</strong> lahir. 
+                Sejak saat itu, Ren menyadari bahwa ia adalah <strong>pewaris terakhir</strong> dari garis keturunan 
+                Dragon Knight — para kesatria yang mampu mengendalikan kekuatan naga.
+            </p>
+            <button class="btn-primary" id="detailReadBtn">
+                <i class="fas fa-play"></i> Baca Sekarang
+            </button>
         </div>
     </div>
 </section>
 
 <!-- ====== EPISODE LIST ====== -->
-<section class="episodes-section">
-    <div class="episodes-header">
-        <h2><i class="fas fa-list-ul"></i> Episode</h2>
+<section class="episode-section">
+    <div class="section-header">
+        <h2><i class="fas fa-list-ul"></i> Daftar Episode</h2>
         <span class="episode-count">12 Episode</span>
     </div>
-
     <div class="episode-list">
-        <!-- Episode 1 -->
-        <div class="episode-card" data-chapter="1">
-            <div class="episode-thumb">
-                <div class="thumb-placeholder" style="background:linear-gradient(135deg,#2d1b69,#11998e);">
-                    <i class="fas fa-dragon"></i>
-                </div>
-                <div class="episode-number">#1</div>
+        <div class="episode-item">
+            <div class="episode-number">#1</div>
+            <div class="episode-title">
+                <h4>Pertemuan dengan Pyro</h4>
+                <p>Ren menemukan telur naga di perpustakaan dan bertemu dengan Pyro.</p>
             </div>
-            <div class="episode-info">
-                <h3>Pertemuan dengan Pyro</h3>
-                <p>Ren menemukan telur naga di perpustakaan dan bertemu dengan Pyro untuk pertama kalinya.</p>
-                <div class="episode-meta">
-                    <span><i class="far fa-clock"></i> 2 jam lalu</span>
-                    <span><i class="far fa-eye"></i> 2.3K</span>
-                    <span><i class="far fa-heart"></i> 856</span>
-                </div>
-                <button class="btn-read-episode">Baca <i class="fas fa-chevron-right"></i></button>
+            <div class="episode-right">
+                <span class="episode-date"><i class="far fa-clock"></i> 2 jam lalu</span>
+                <button class="episode-read">Baca</button>
             </div>
         </div>
-
-        <!-- Episode 2 -->
-        <div class="episode-card" data-chapter="2">
-            <div class="episode-thumb">
-                <div class="thumb-placeholder" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
-                    <i class="fas fa-fire"></i>
-                </div>
-                <div class="episode-number">#2</div>
+        <div class="episode-item">
+            <div class="episode-number">#2</div>
+            <div class="episode-title">
+                <h4>Api Pertama</h4>
+                <p>Ren berhasil mengeluarkan api dari tangannya untuk pertama kalinya.</p>
             </div>
-            <div class="episode-info">
-                <h3>Api Pertama</h3>
-                <p>Ren berhasil mengeluarkan api dari tangannya untuk pertama kalinya, namun kekuatannya tidak stabil.</p>
-                <div class="episode-meta">
-                    <span><i class="far fa-clock"></i> 1 hari lalu</span>
-                    <span><i class="far fa-eye"></i> 1.8K</span>
-                    <span><i class="far fa-heart"></i> 623</span>
-                </div>
-                <button class="btn-read-episode">Baca <i class="fas fa-chevron-right"></i></button>
+            <div class="episode-right">
+                <span class="episode-date"><i class="far fa-clock"></i> 1 hari lalu</span>
+                <button class="episode-read">Baca</button>
             </div>
         </div>
-
-        <!-- Episode 3 -->
-        <div class="episode-card" data-chapter="3">
-            <div class="episode-thumb">
-                <div class="thumb-placeholder" style="background:linear-gradient(135deg,#a8edea,#fed6e3);">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <div class="episode-number">#3</div>
+        <div class="episode-item">
+            <div class="episode-number">#3</div>
+            <div class="episode-title">
+                <h4>Pertemuan dengan Lira</h4>
+                <p>Ren bertemu dengan Lira, prajurit kerajaan yang mengetahui rahasia Dragon Knight.</p>
             </div>
-            <div class="episode-info">
-                <h3>Pertemuan dengan Lira</h3>
-                <p>Ren bertemu dengan Lira, seorang prajurit kerajaan yang mengetahui rahasia tentang Dragon Knight.</p>
-                <div class="episode-meta">
-                    <span><i class="far fa-clock"></i> 3 hari lalu</span>
-                    <span><i class="far fa-eye"></i> 1.5K</span>
-                    <span><i class="far fa-heart"></i> 478</span>
-                </div>
-                <button class="btn-read-episode">Baca <i class="fas fa-chevron-right"></i></button>
+            <div class="episode-right">
+                <span class="episode-date"><i class="far fa-clock"></i> 3 hari lalu</span>
+                <button class="episode-read">Baca</button>
             </div>
         </div>
-
-        <!-- Episode 4 -->
-        <div class="episode-card" data-chapter="4">
-            <div class="episode-thumb">
-                <div class="thumb-placeholder" style="background:linear-gradient(135deg,#f6d365,#fda085);">
-                    <i class="fas fa-crown"></i>
-                </div>
-                <div class="episode-number">#4</div>
+        <div class="episode-item">
+            <div class="episode-number">#4</div>
+            <div class="episode-title">
+                <h4>Panggilan Kerajaan</h4>
+                <p>Ren dipanggil ke istana oleh Raja Aldric.</p>
             </div>
-            <div class="episode-info">
-                <h3>Panggilan Kerajaan</h3>
-                <p>Ren dipanggil ke istana oleh Raja Aldric yang mengetahui keberadaan Pyro dan kekuatan Ren.</p>
-                <div class="episode-meta">
-                    <span><i class="far fa-clock"></i> 5 hari lalu</span>
-                    <span><i class="far fa-eye"></i> 1.2K</span>
-                    <span><i class="far fa-heart"></i> 356</span>
-                </div>
-                <button class="btn-read-episode">Baca <i class="fas fa-chevron-right"></i></button>
+            <div class="episode-right">
+                <span class="episode-date"><i class="far fa-clock"></i> 5 hari lalu</span>
+                <button class="episode-read">Baca</button>
             </div>
         </div>
-
-        <!-- Episode 5 -->
-        <div class="episode-card" data-chapter="5">
-            <div class="episode-thumb">
-                <div class="thumb-placeholder" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);">
-                    <i class="fas fa-mask"></i>
-                </div>
-                <div class="episode-number">#5</div>
-            </div>
-            <div class="episode-info">
-                <h3>Bayangan Kegelapan</h3>
+        <div class="episode-item">
+            <div class="episode-number">#5</div>
+            <div class="episode-title">
+                <h4>Bayangan Kegelapan</h4>
                 <p>Ren mulai merasakan kehadiran kegelapan yang mengintai dari dalam kerajaan.</p>
-                <div class="episode-meta">
-                    <span><i class="far fa-clock"></i> 1 minggu lalu</span>
-                    <span><i class="far fa-eye"></i> 984</span>
-                    <span><i class="far fa-heart"></i> 287</span>
-                </div>
-                <button class="btn-read-episode">Baca <i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="episode-right">
+                <span class="episode-date"><i class="far fa-clock"></i> 1 minggu lalu</span>
+                <button class="episode-read">Baca</button>
             </div>
         </div>
     </div>
-
-    <div class="episodes-footer">
-        <button class="btn-load-more" id="loadMoreEpisodes">
+    <div class="episode-footer">
+        <button class="btn-load" id="loadEpisodes">
             <i class="fas fa-chevron-circle-down"></i> Tampilkan Semua Episode
         </button>
     </div>
 </section>
 
 <!-- ====== KOMENTAR ====== -->
-<section class="comments-section">
-    <div class="comments-header">
+<section class="komentar-section">
+    <div class="section-header">
         <h2><i class="fas fa-comments"></i> Komentar</h2>
         <span class="comment-count">1.2K</span>
     </div>
-
-    <div class="comment-input">
-        <div class="comment-avatar">
+    <div class="komentar-input">
+        <div class="komentar-avatar">
             <i class="fas fa-user-circle"></i>
         </div>
-        <div class="comment-box">
+        <div class="komentar-box">
             <input type="text" placeholder="Tulis komentar..." id="commentInput" />
-            <button id="commentSendBtn"><i class="fas fa-paper-plane"></i></button>
+            <button id="commentSend"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
-
-    <div class="comment-list">
-        <div class="comment-item">
-            <div class="comment-avatar">
+    <div class="komentar-list">
+        <div class="komentar-item">
+            <div class="komentar-avatar">
                 <i class="fas fa-user-circle"></i>
             </div>
-            <div class="comment-content">
-                <div class="comment-user">
-                    <strong>Rina</strong>
-                    <span>⭐ 5.0</span>
-                    <span class="comment-time">2 jam lalu</span>
-                </div>
-                <p>Ceritanya seru banget! Karakter Ren dan Pyro bikin saya nggak sabar lanjutin episode selanjutnya. Gambarnya juga keren!</p>
-                <div class="comment-actions">
-                    <button><i class="far fa-heart"></i> 24</button>
-                    <button><i class="far fa-reply"></i> Balas</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="comment-item">
-            <div class="comment-avatar">
-                <i class="fas fa-user-circle"></i>
-            </div>
-            <div class="comment-content">
-                <div class="comment-user">
-                    <strong>Andi</strong>
-                    <span>⭐ 4.8</span>
-                    <span class="comment-time">5 jam lalu</span>
-                </div>
-                <p>Saya suka tema fantasy-nya. Alur cerita sangat menarik dan karakter-karakternya kuat. Rekomendasi banget buat pecinta komik!</p>
-                <div class="comment-actions">
-                    <button><i class="far fa-heart"></i> 18</button>
-                    <button><i class="far fa-reply"></i> Balas</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="comment-item">
-            <div class="comment-avatar">
-                <i class="fas fa-user-circle"></i>
-            </div>
-            <div class="comment-content">
-                <div class="comment-user">
-                    <strong>Budi</strong>
-                    <span>⭐ 4.9</span>
-                    <span class="comment-time">1 hari lalu</span>
-                </div>
-                <p>Pyro lucu banget! Pengen lihat Pyro makin besar dan kuat. Kapan episode baru keluar?</p>
-                <div class="comment-actions">
-                    <button><i class="far fa-heart"></i> 12</button>
-                    <button><i class="far fa-reply"></i> Balas</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <button class="btn-load-comments" id="loadMoreComments">
-        <i class="fas fa-chevron-circle-down"></i> Tampilkan Komentar Lainnya
-    </button>
-</section>
-
-<!-- ====== FOOTER ====== -->
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-brand">
-            <span>🐉 DragonHeir</span>
-            <p>Komik Fantasy karya MikoAmora</p>
-        </div>
-        <div class="footer-social">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-        </div>
-    <
+            <div class="komentar-body">
+                <div class="komentar-user">
+                    <strong>Rina
