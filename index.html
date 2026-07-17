@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>Dragon Heir · Webtoon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -29,10 +29,6 @@
             <button class="nav-icon" id="themeToggle">
                 <i class="fas fa-moon"></i>
             </button>
-            <button class="nav-icon" id="notifToggle">
-                <i class="fas fa-bell"></i>
-                <span class="badge-dot"></span>
-            </button>
             <div class="avatar">
                 <i class="fas fa-user-circle"></i>
             </div>
@@ -40,7 +36,7 @@
     </div>
 </nav>
 
-<!-- ====== SEARCH BAR (Hidden) ====== -->
+<!-- ====== SEARCH BAR ====== -->
 <div class="search-bar" id="searchBar">
     <div class="search-container">
         <i class="fas fa-search"></i>
@@ -49,7 +45,7 @@
     </div>
 </div>
 
-<!-- ====== HERO SECTION ====== -->
+<!-- ====== HERO SECTION (WEBTOON STYLE) ====== -->
 <section class="hero-section">
     <div class="hero-bg"></div>
     <div class="hero-content">
@@ -78,34 +74,34 @@
     </div>
 </section>
 
-<!-- ====== INFO KOMIK ====== -->
+<!-- ====== INFO KOMIK (WEBTOON STYLE) ====== -->
 <section class="info-section">
     <div class="info-grid">
         <div class="info-item">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-user-pen"></i>
             <div>
-                <small>Penulis</small>
+                <small>PENULIS</small>
                 <span>MikoAmora</span>
             </div>
         </div>
         <div class="info-item">
-            <i class="fas fa-tag"></i>
+            <i class="fas fa-tags"></i>
             <div>
-                <small>Genre</small>
+                <small>GENRE</small>
                 <span>Fantasy · Aksi · Petualangan</span>
             </div>
         </div>
         <div class="info-item">
             <i class="fas fa-clock"></i>
             <div>
-                <small>Update</small>
+                <small>UPDATE</small>
                 <span>2 jam lalu</span>
             </div>
         </div>
         <div class="info-item">
             <i class="fas fa-book"></i>
             <div>
-                <small>Status</small>
+                <small>STATUS</small>
                 <span class="status-ongoing">Ongoing</span>
             </div>
         </div>
@@ -134,6 +130,116 @@
             <strong>Raja Kegelapan</strong> yang telah lama terkubur. Akankah Ren mampu menguasai kekuatannya 
             sebelum kegelapan menyelimuti Eldoria?
         </p>
+    </div>
+</section>
+
+<!-- ====== TRENDING & POPULER (WEBTOON STYLE) ====== -->
+<section class="trending-section">
+    <div class="trending-header">
+        <h2><i class="fas fa-fire"></i> Serial Trending & Populer</h2>
+        <div class="trending-tabs">
+            <button class="tab-btn active">Trending</button>
+            <button class="tab-btn">Populer</button>
+        </div>
+    </div>
+
+    <div class="trending-list">
+        <!-- Item 1 -->
+        <div class="trending-item">
+            <div class="trending-rank">1</div>
+            <div class="trending-thumb" style="background:linear-gradient(135deg,#2d1b69,#11998e);">
+                <i class="fas fa-crown"></i>
+            </div>
+            <div class="trending-info">
+                <h4>Marchioness M...</h4>
+                <p>Kerajaan</p>
+                <div class="trending-meta">
+                    <span><i class="fas fa-eye"></i> 25</span>
+                    <span><i class="fas fa-heart"></i> 15</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="trending-item">
+            <div class="trending-rank">2</div>
+            <div class="trending-thumb" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="trending-info">
+                <h4>The Perfect Mal...</h4>
+                <p>Romantis</p>
+                <div class="trending-meta">
+                    <span><i class="fas fa-eye"></i> 15</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="trending-item">
+            <div class="trending-rank">3</div>
+            <div class="trending-thumb" style="background:linear-gradient(135deg,#a8edea,#fed6e3);">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <div class="trending-info">
+                <h4>Violats Blooming...</h4>
+                <p>Kerajaan</p>
+                <div class="trending-meta">
+                    <span><i class="fas fa-eye"></i> 1</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="trending-item">
+            <div class="trending-rank">4</div>
+            <div class="trending-thumb" style="background:linear-gradient(135deg,#f6d365,#fda085);">
+                <i class="fas fa-skull"></i>
+            </div>
+            <div class="trending-info">
+                <h4>Iblis di Antara Ki...</h4>
+                <p>Thriller</p>
+                <div class="trending-meta">
+                    <span><i class="fas fa-eye"></i> 20</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="trending-item">
+            <div class="trending-rank">5</div>
+            <div class="trending-thumb" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="trending-info">
+                <h4>#MyFirstLove</h4>
+                <p>Romantis</p>
+                <div class="trending-meta">
+                    <span><i class="fas fa-eye"></i> 3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="trending-item">
+            <div class="trending-rank">6</div>
+            <div class="trending-thumb" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);">
+                <i class="fas fa-gamepad"></i>
+            </div>
+            <div class="trending-info">
+                <h4>Reality Quest</h4>
+                <p>Aksi</p>
+                <div class="trending-meta">
+                    <span><i class="fas fa-eye"></i> 6</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="trending-footer">
+        <button class="btn-install-app">
+            <i class="fas fa-download"></i> Install aplikasi
+        </button>
     </div>
 </section>
 
@@ -396,17 +502,4 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <span>© 2026 DragonHeir · Dibuat dengan <i class="fas fa-heart" style="color:#ff4757;"></i></span>
-    </div>
-</footer>
-
-<!-- ====== FLOATING ACTION BUTTON ====== -->
-<button class="fab" id="fabBtn">
-    <i class="fas fa-chevron-up"></i>
-</button>
-
-<script src="script.js"></script>
-</body>
-              </html>
+    <
