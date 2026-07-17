@@ -106,17 +106,6 @@ body {
     gap: 0.4rem;
 }
 
-.badge-dot {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
-    border-radius: 50%;
-    border: 2px solid var(--bg-primary);
-}
-
 .avatar {
     font-size: 1.8rem;
     color: var(--text-secondary);
@@ -422,6 +411,166 @@ body {
 
 .synopsis-content strong {
     color: var(--accent);
+}
+
+/* ===== TRENDING & POPULER (WEBTOON STYLE) ===== */
+.trending-section {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding: 0 1.2rem;
+}
+
+.trending-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.trending-header h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.trending-header h2 i {
+    color: #ff4757;
+    margin-right: 8px;
+}
+
+.trending-tabs {
+    display: flex;
+    gap: 0.4rem;
+    background: var(--bg-card);
+    padding: 0.2rem;
+    border-radius: 30px;
+    border: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab-btn.active {
+    background: var(--accent);
+    color: #fff;
+}
+
+.tab-btn:hover:not(.active) {
+    color: #fff;
+}
+
+.trending-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.trending-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--bg-card);
+    padding: 0.6rem 0.8rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.trending-item:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.trending-rank {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    min-width: 24px;
+}
+
+.trending-item:first-child .trending-rank {
+    color: #ffd700;
+}
+.trending-item:nth-child(2) .trending-rank {
+    color: #c0c0c0;
+}
+.trending-item:nth-child(3) .trending-rank {
+    color: #cd7f32;
+}
+
+.trending-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;
+}
+
+.trending-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.trending-info h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.trending-info p {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.trending-meta {
+    display: flex;
+    gap: 0.6rem;
+    font-size: 0.6rem;
+    color: var(--text-muted);
+}
+
+.trending-meta i {
+    margin-right: 2px;
+}
+
+.trending-footer {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.btn-install-app {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+}
+
+.btn-install-app:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(79, 172, 254, 0.4);
 }
 
 /* ===== KARAKTER ===== */
@@ -960,70 +1109,4 @@ body {
     
     .episode-meta {
         font-size: 0.6rem;
-        gap: 0.5rem;
-    }
-    
-    .comment-item {
-        padding: 0.6rem;
-    }
-    
-    .comment-content p {
-        font-size: 0.8rem;
-    }
-    
-    .character-card {
-        flex: 0 0 80px;
-        padding: 0.6rem 0.4rem;
-    }
-    
-    .char-avatar {
-        width: 44px;
-        height: 44px;
-        font-size: 1rem;
-    }
-    
-    .char-info h4 {
-        font-size: 0.7rem;
-    }
-    
-    .char-info p {
-        font-size: 0.55rem;
-    }
-    
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .synopsis-content {
-        padding: 1rem;
-    }
-    
-    .synopsis-content p {
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 400px) {
-    .nav-left .logo-text {
-        display: none;
-    }
-    
-    .hero-title {
-        font-size: 1.6rem;
-    }
-    
-    .info-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.4rem;
-        padding: 0.8rem;
-    }
-    
-    .info-item {
-        gap: 0.4rem;
-    }
-    
-    .info-item span {
-        font-size: 0.7rem;
-    }
-  }
+        
