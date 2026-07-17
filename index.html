@@ -23,9 +23,10 @@
 
     <!-- ===== KONTEN KOMIK VERTIKAL ===== -->
     <!-- KOMIK 1 -->
-    <article class="komik-card">
+    <article class="komik-card" data-id="1">
         <div class="komik-gambar">
-            <img src="https://picsum.photos/seed/mikokun1/600/800" alt="MikoKun komik episode 1" loading="lazy" />
+            <img src="assets/komik1-cover.jpg" alt="MikoKun komik episode 1" loading="lazy" 
+                 onerror="this.src='https://picsum.photos/seed/mikokun1/600/800'" />
         </div>
         <div class="komik-info">
             <div class="komik-judul">
@@ -42,16 +43,17 @@
                 <span class="badge-tag">🐱 supernatural</span>
             </div>
             <div class="aksi-tombol">
-                <button class="btn btn-primary">📖 Baca</button>
-                <button class="btn btn-secondary">➕ Simpan</button>
+                <button class="btn btn-primary btn-baca" data-id="1">📖 Baca</button>
+                <button class="btn btn-secondary btn-simpan" data-id="1">➕ Simpan</button>
             </div>
         </div>
     </article>
 
     <!-- KOMIK 2 -->
-    <article class="komik-card">
+    <article class="komik-card" data-id="2">
         <div class="komik-gambar">
-            <img src="https://picsum.photos/seed/mikokun2/600/800" alt="MikoKun komik episode 2" loading="lazy" />
+            <img src="assets/komik2-cover.jpg" alt="MikoKun komik episode 2" loading="lazy"
+                 onerror="this.src='https://picsum.photos/seed/mikokun2/600/800'" />
         </div>
         <div class="komik-info">
             <div class="komik-judul">
@@ -68,20 +70,17 @@
                 <span class="badge-tag">✨ fantasi</span>
             </div>
             <div class="aksi-tombol">
-                <button class="btn btn-primary">📖 Baca</button>
-                <button class="btn btn-secondary">➕ Simpan</button>
+                <button class="btn btn-primary btn-baca" data-id="2">📖 Baca</button>
+                <button class="btn btn-secondary btn-simpan" data-id="2">➕ Simpan</button>
             </div>
         </div>
     </article>
 
-    <!-- KOMIK 3 (placeholder tanpa gambar) -->
-    <article class="komik-card">
+    <!-- KOMIK 3 -->
+    <article class="komik-card" data-id="3">
         <div class="komik-gambar">
-            <div class="placeholder-img">
-                <span class="big-icon">🎴</span>
-                <span>Episode 3 segera hadir</span>
-                <span class="small">— MikoKun sedang bertualang —</span>
-            </div>
+            <img src="assets/komik3-cover.jpg" alt="MikoKun komik episode 3" loading="lazy"
+                 onerror="this.src='https://picsum.photos/seed/mikokun3/600/800'" />
         </div>
         <div class="komik-info">
             <div class="komik-judul">
@@ -98,8 +97,8 @@
                 <span class="badge-tag">🌸 drama</span>
             </div>
             <div class="aksi-tombol">
-                <button class="btn btn-primary">📖 Baca</button>
-                <button class="btn btn-secondary">➕ Simpan</button>
+                <button class="btn btn-primary btn-baca" data-id="3">📖 Baca</button>
+                <button class="btn btn-secondary btn-simpan" data-id="3">➕ Simpan</button>
             </div>
         </div>
     </article>
