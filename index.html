@@ -3,38 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MikoKun - Baca Manga</title>
+    <title>MikoKun - Webtoon</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
     <header>
         <h1>📚 MikoKun</h1>
-        <p>Baca manga favoritmu di sini</p>
+        <p>Webtoon series</p>
     </header>
 
-    <!-- Daftar Manga -->
+    <!-- Daftar Episode -->
     <main>
-        <h2>🔥 Manga Populer</h2>
-        <div class="manga-list">
-            <div class="manga-card">
-                <div class="manga-cover" style="background: #2d3436;">📖</div>
-                <h3>Judul Manga 1</h3>
-                <p>Chapter 1 - 10</p>
-                <a href="#" class="btn">Baca</a>
-            </div>
-            <div class="manga-card">
-                <div class="manga-cover" style="background: #0984e3;">📖</div>
-                <h3>Judul Manga 2</h3>
-                <p>Chapter 1 - 5</p>
-                <a href="#" class="btn">Baca</a>
-            </div>
+        <h2>📖 Episode</h2>
+        
+        <div class="episode-list">
+            <a href="baca.html?ep=1" class="episode-card">
+                <span class="ep-number">Episode 1</span>
+                <span class="ep-title">Awal Petualangan</span>
+                <span class="ep-date">📅 18 Juli 2026</span>
+            </a>
+            <a href="baca.html?ep=2" class="episode-card">
+                <span class="ep-number">Episode 2</span>
+                <span class="ep-title">Konflik Dimulai</span>
+                <span class="ep-date">📅 19 Juli 2026</span>
+            </a>
+            <a href="baca.html?ep=3" class="episode-card">
+                <span class="ep-number">Episode 3</span>
+                <span class="ep-title">Kekuatan Baru</span>
+                <span class="ep-date">📅 20 Juli 2026</span>
+            </a>
+        </div>
+
+        <!-- Info tambahan -->
+        <div class="info-box">
+            <p>💡 Geser ke bawah untuk membaca episode</p>
         </div>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 MikoKun | Dibuat dengan ❤️</p>
+        <p>&copy; 2026 MikoKun | Dibuat dengan ❤️ dari HP</p>
     </footer>
 </body>
 </html>
