@@ -2,48 +2,161 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MikoKun - Webtoon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>MikoKun - Baca Komik Online</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <h1>📚 MikoKun</h1>
-        <p>Webtoon series</p>
-    </header>
-
-    <!-- Daftar Episode -->
-    <main>
-        <h2>📖 Episode</h2>
-        
-        <div class="episode-list">
-            <a href="baca.html?ep=1" class="episode-card">
-                <span class="ep-number">Episode 1</span>
-                <span class="ep-title">Awal Petualangan</span>
-                <span class="ep-date">📅 18 Juli 2026</span>
+    <!-- ============ NAVIGASI ============ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">✦</span>
+                MikoKun
             </a>
-            <a href="baca.html?ep=2" class="episode-card">
-                <span class="ep-number">Episode 2</span>
-                <span class="ep-title">Konflik Dimulai</span>
-                <span class="ep-date">📅 19 Juli 2026</span>
-            </a>
-            <a href="baca.html?ep=3" class="episode-card">
-                <span class="ep-number">Episode 3</span>
-                <span class="ep-title">Kekuatan Baru</span>
-                <span class="ep-date">📅 20 Juli 2026</span>
-            </a>
+            <div class="nav-links">
+                <a href="#" class="active">Beranda</a>
+                <a href="#">Komik</a>
+                <a href="#">Tentang</a>
+            </div>
         </div>
+    </nav>
 
-        <!-- Info tambahan -->
-        <div class="info-box">
-            <p>💡 Geser ke bawah untuk membaca episode</p>
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">✦ Webtoon Series</span>
+                <h1 class="hero-title">
+                    Baca Komik<br>
+                    <span class="gradient-text">MikoKun</span>
+                </h1>
+                <p class="hero-desc">
+                    Nikmati cerita seru dan visual menakjubkan<br>
+                    dari karya orisinal MikoKun.
+                </p>
+                <a href="#komik" class="btn-primary">
+                    <span>Mulai Membaca</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+            <div class="hero-illustration">
+                <div class="floating-card card-1">📖</div>
+                <div class="floating-card card-2">🎨</div>
+                <div class="floating-card card-3">⭐</div>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 MikoKun | Dibuat dengan ❤️ dari HP</p>
+    <!-- ============ DAFTAR KOMIK ============ -->
+    <section class="komik-section" id="komik">
+        <div class="container">
+            <div class="section-header">
+                <h2>🔥 Komik Populer</h2>
+                <p>Temukan series terbaik dari MikoKun</p>
+            </div>
+
+            <div class="komik-grid">
+                <!-- Kartu 1 -->
+                <a href="baca.html?ep=1" class="komik-card">
+                    <div class="komik-cover" style="background: linear-gradient(135deg, #6c5ce7, #a29bfe);">
+                        <span class="cover-emoji">⚔️</span>
+                        <span class="cover-badge">Terbaru</span>
+                    </div>
+                    <div class="komik-info">
+                        <h3>Petualangan Miko</h3>
+                        <p>Episode 1 - 3</p>
+                        <div class="komik-meta">
+                            <span>❤️ 1.2K</span>
+                            <span>💬 89</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Kartu 2 -->
+                <a href="baca.html?ep=4" class="komik-card">
+                    <div class="komik-cover" style="background: linear-gradient(135deg, #fd79a8, #e17055);">
+                        <span class="cover-emoji">🌸</span>
+                        <span class="cover-badge">Populer</span>
+                    </div>
+                    <div class="komik-info">
+                        <h3>Kisah Musim Semi</h3>
+                        <p>Episode 1 - 5</p>
+                        <div class="komik-meta">
+                            <span>❤️ 856</span>
+                            <span>💬 64</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Kartu 3 -->
+                <a href="baca.html?ep=7" class="komik-card">
+                    <div class="komik-cover" style="background: linear-gradient(135deg, #00b894, #55efc4);">
+                        <span class="cover-emoji">🌙</span>
+                        <span class="cover-badge">Baru</span>
+                    </div>
+                    <div class="komik-info">
+                        <h3>Malam Tak Berujung</h3>
+                        <p>Episode 1 - 2</p>
+                        <div class="komik-meta">
+                            <span>❤️ 324</span>
+                            <span>💬 27</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ STATISTIK ============ -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Episode</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2.4K</span>
+                    <span class="stat-label">Pembaca</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.8</span>
+                    <span class="stat-label">Rating ⭐</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">✦</span>
+                    <span>MikoKun</span>
+                    <p>Karya orisinal dari MikoKun Studio</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Tentang</a>
+                    <a href="#">Kebijakan</a>
+                    <a href="#">Kontak</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MikoKun. Dibuat dengan ❤️ dari HP</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Animasi smooth scroll
+        document.querySelector('.btn-primary').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#komik').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 </body>
-</html>
+                            </html>
