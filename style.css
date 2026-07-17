@@ -101,6 +101,7 @@ body {
     box-shadow: 0 15px 35px rgba(0,0,0,0.7), 0 0 0 1px rgba(255, 215, 100, 0.1);
     transition: transform 0.15s ease, box-shadow 0.2s;
     backdrop-filter: blur(2px);
+    cursor: pointer;
 }
 
 .komik-card:hover {
@@ -387,4 +388,4 @@ body {
         font-size: 13px;
         padding: 10px 6px;
     }
-        }
+}
